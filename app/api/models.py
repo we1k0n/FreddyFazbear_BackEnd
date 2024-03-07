@@ -7,7 +7,6 @@ class AdminUser(models.Model):
 
 class CustomerUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone_num = models.CharField(max_length=20)
     # Додаткові поля для звичайного користувача
 
 class DeliveryUser(models.Model):
