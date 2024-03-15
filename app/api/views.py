@@ -22,3 +22,7 @@ class CustomerUserCreateView(generics.CreateAPIView):
 class DeliveryUserCreateView(generics.CreateAPIView):
     queryset = DeliveryUser.objects.all()
     serializer_class = DeliveryUserSerializer
+    
+class RestaurantUserCreateView(generics.CreateAPIView):
+    queryset = RestaurantUser.objects.all()
+    serializer_class = RestaurantUserSerializer

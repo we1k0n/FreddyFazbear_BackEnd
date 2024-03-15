@@ -34,7 +34,15 @@ class DeliveryUserSerializer(serializers.ModelSerializer):
         return delivery_user
 
 class RestaurantUserSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+
     class Meta:
         model = RestaurantUser
         fields = '__all__'
+
+    def create(self, validated_data):
+        user_data = validated_data.pop('user')
+        user = User.objects.create_user(**user_data)
+        restaurant_user = RestaurantUser.objects.create(user=user, **validated_data)
+        return restaurant_user
 
