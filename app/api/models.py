@@ -11,17 +11,18 @@ class CustomerUser(models.Model):
 
 class DeliveryUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    location = models.CharField(max_length=255)
-    vehicles = models.CharField(max_length=255)
+    vehicles = models.CharField(max_length=255,null=True, blank=True)
     active_order_id = models.IntegerField()
-    time = models.DateTimeField()
     phone_num = models.CharField(max_length=20)
     # Додаткові поля для доставка
 
 class RestaurantUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    location = models.CharField(max_length=255)
     rate = models.FloatField()
     type = models.CharField(max_length=255)
+    opening_time = models.DateTimeField()
+    closing_time = models.DateTimeField()
 
 class Order(models.Model):
     customer_id = models.ForeignKey(CustomerUser, on_delete=models.CASCADE)
