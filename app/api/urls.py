@@ -23,3 +23,4 @@ urlpatterns = [
     path('register/delivery/', DeliveryUserCreateView.as_view(), name='register_delivery'),
     path('register/restaurant/', RestaurantUserCreateView.as_view(), name='register_restaurant'),
 ]
+

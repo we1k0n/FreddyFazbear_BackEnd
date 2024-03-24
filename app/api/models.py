@@ -23,7 +23,7 @@ class RestaurantUser(models.Model):
     opening_time = models.DateTimeField()
     closing_time = models.DateTimeField()
     location = models.CharField(max_length=255)
-    photo = models.ImageField(upload_to='restaurant_photos', null=True, blank=True)
+    photo = models.ImageField(upload_to='restaurant_photos/', null=True, blank=True)
 
 class Order(models.Model):
     customer_id = models.ForeignKey(CustomerUser, on_delete=models.CASCADE)
@@ -40,7 +40,7 @@ class Dish(models.Model):
     name = models.CharField(max_length=255)
     cost = models.FloatField()
     type = models.CharField(max_length=255)
-    photo = models.ImageField(upload_to='dish_photos', null=True, blank=True)
+    photo = models.ImageField(upload_to='dish_photos/', null=True, blank=True)
     
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name='order_items', on_delete=models.CASCADE)
