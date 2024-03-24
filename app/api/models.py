@@ -41,6 +41,7 @@ class Dish(models.Model):
     cost = models.FloatField()
     count = models.IntegerField()
     type = models.CharField(max_length=255)
+    photo = models.ImageField(upload_to='dish_photos', null=True, blank=True)
     
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name='order_items', on_delete=models.CASCADE)
