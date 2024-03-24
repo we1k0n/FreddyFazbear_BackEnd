@@ -39,7 +39,6 @@ class Dish(models.Model):
     restaurant_id = models.ForeignKey(RestaurantUser, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     cost = models.FloatField()
-    count = models.IntegerField()
     type = models.CharField(max_length=255)
     photo = models.ImageField(upload_to='dish_photos', null=True, blank=True)
     
