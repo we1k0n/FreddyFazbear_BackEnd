@@ -47,11 +47,16 @@ class OrderItem(models.Model):
     dish = models.ForeignKey(Dish, on_delete=models.CASCADE)
     quantity = models.IntegerField()
 
+
+    
+class CartItem(models.Model):
+    customer_id = models.ForeignKey(CustomerUser, on_delete=models.CASCADE)
+    dish_id = models.ForeignKey(Dish, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
 class Cart(models.Model):
     customer_id = models.ForeignKey(CustomerUser, on_delete=models.CASCADE)
-    count = models.IntegerField()
 
-class CartItem(models.Model):
-    order = models.ForeignKey(Order, related_name='cart_items', on_delete=models.CASCADE)
-    dish = models.ForeignKey(Dish, on_delete=models.CASCADE)
-    quantity = models.IntegerField()
+# class CartItem(models.Model):
+#     cart = models.ForeignKey(Cart, related_name='cart_items', on_delete=models.CASCADE)
+#     dish = models.ForeignKey(Dish, on_delete=models.CASCADE)
+#     quantity = models.IntegerField()
