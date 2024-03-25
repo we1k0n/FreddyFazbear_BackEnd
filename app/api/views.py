@@ -61,3 +61,9 @@ def add_to_cart(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET'])
+def user_cart(request, user_id):
+    cart_items = CartItem.objects.filter(customer_id=user_id)
+    serializer = CartItemSerializer(cart_items, many=True)
+    return Response(serializer.data)

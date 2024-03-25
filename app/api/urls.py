@@ -23,5 +23,6 @@ urlpatterns = [
     path('register/delivery/', DeliveryUserCreateView.as_view(), name='register_delivery'),
     path('register/restaurant/', RestaurantUserCreateView.as_view(), name='register_restaurant'),
     path('add_to_cart/', add_to_cart, name='add_to_cart'),
+    path('user-cart/<int:user_id>/', user_cart, name='user_cart'),
 ]
 
